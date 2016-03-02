@@ -21,8 +21,19 @@ module ``Second Problem`` =
         | [] -> None
         | [x] -> None
         | [a;b] -> Some(a,b)
-        | hd::tl -> last_two tl             
+        | hd::tl -> last_two tl 
 
-    Some("c","d") = last_two [ "a"; "b"; "c"; "d" ]
+    let rec last_two_simpler = function
+        | [a;b] -> Some(a,b)
+        | hd::tl -> last_two tl
+        | [] -> None            
 
-    None = last_two [ "a" ]
+    Some("c","d") = last_two_simpler [ "a"; "b"; "c"; "d" ]
+
+    None = last_two_simpler [ "a" ]
+
+
+module ``Third Problem`` =
+
+    rand_select [ "a" ; "b" ; 
+
